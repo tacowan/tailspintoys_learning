@@ -84,3 +84,5 @@ describe('getAllGames', () => {
 - Don't mock the database — an in-memory libSQL instance is fast and exercises real SQL/joins.
 - Keep fixtures minimal but representative of relationships (game → publisher, game → category).
 - If a schema change breaks tests, regenerate migrations with `npm run db:generate` and update fixtures.
+- Keep comments focused on intent and edge cases; avoid comments that simply tell the reader what the assertion or helper already states.
+- Exported test helpers should still be documented with minimal JSDoc when their purpose or fixture expectations are not obvious.

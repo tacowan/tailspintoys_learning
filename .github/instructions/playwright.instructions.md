@@ -82,6 +82,12 @@ test.describe('Movie Search Feature', () => {
 4. **Validate**: Ensure tests pass consistently and cover the intended functionality.
 5. **Report**: Provide feedback on test results and any issues discovered.
 
+## Comments and documentation
+
+- Keep comments focused on intent, tricky user flows, or cross-browser edge cases; avoid paraphrasing the actions already obvious from the Playwright assertions and locators
+- Remove stale comments when test flow changes, since they hide the real intent of the check
+- Add JSDoc only for exported helper functions or fixtures when the test setup is not obvious from the name and signature
+
 ## Quality Checklist
 
 Before finalizing tests, ensure:
@@ -89,4 +95,4 @@ Before finalizing tests, ensure:
 - [ ] Tests are grouped logically and follow a clear structure
 - [ ] Assertions are meaningful and reflect user expectations
 - [ ] Tests follow consistent naming conventions
-- [ ] Code is properly formatted and commented
+- [ ] Code is properly formatted and comments explain intent without restating the code

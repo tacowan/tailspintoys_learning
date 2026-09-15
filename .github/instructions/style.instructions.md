@@ -46,6 +46,13 @@ ALL UI components MUST use dark theme colors:
 - Use semantic grouping: layout, spacing, colors, typography
 - Keep utility combinations readable and maintainable
 
+## Commenting and TypeScript formatting
+
+- Write comments to explain intent, constraints, or the reason for a non-obvious style choice; do not narrate what the utility class already says
+- Remove stale comments when layout or styling changes make them misleading
+- Use explicit TypeScript types and consistent `Props`/interface naming in reusable components and helpers; the code should read like a clear contract, not a loose collection of ad hoc objects
+- Keep formatting consistent with the project's ESLint rules where available, and extend linting only when the new rule improves clarity without fighting the Astro/Tailwind workflow
+
 ## Modern UI Patterns
 
 - Rounded corners: `rounded-lg`, `rounded-xl`, `rounded-2xl`

@@ -51,6 +51,13 @@ Refer to technology-specific instruction files:
 - Use props for configuration, not duplication
 - Document component APIs with TypeScript types
 
+### Commenting and documentation
+
+- Comment the reasoning behind a component decision, state transition, accessibility choice, or non-obvious layout pattern
+- Do not add comments that merely repeat the markup or prop names in prose
+- Every reusable `.astro` component should document its `Props` interface so the public API is clear to future contributors and Copilot
+- When a comment becomes stale, remove it or update it in the same change that touches the component
+
 ## Development Workflow
 
 1. **Choose the right tool**: 
