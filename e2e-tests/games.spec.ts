@@ -24,6 +24,27 @@ test.describe('Game Listing and Navigation', () => {
     });
   });
 
+  test('should filter games by category and publisher', async ({ page }) => {
+    await test.step('Navigate to the game listing', async () => {
+      await page.goto('/');
+      await expect(page.getByTestId('game-filters')).toBeVisible();
+    });
+
+    await test.step('Apply a category and publisher filter', async () => {
+      await page.getByLabel('Strategy', { exact: true }).check();
+      await page.getByTestId('publisher-filter').selectOption({ label: 'CodeForge Studios' });
+      await page.getByTestId('apply-game-filters').click();
+    });
+
+    await test.step('Verify the combined filtered result', async () => {
+      const gameCards = page.getByTestId('game-card');
+      await expect(page).toHaveURL(/category=.*publisher=/);
+      await expect(gameCards.filter({ hasText: 'DevOps Dominion' })).toBeVisible();
+      await expect(gameCards.filter({ hasText: 'Code Puzzle Chronicles' })).toBeHidden();
+      await expect(page.getByTestId('filtered-empty-state')).toBeHidden();
+    });
+  });
+
   test('should navigate to correct game details page when clicking on a game', async ({ page }) => {
     let gameId: string | null;
     let gameTitle: string | null;
